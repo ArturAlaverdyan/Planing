@@ -1,0 +1,206 @@
+@mixin heightElem ($per) {
+height:$per;
+line-height:$per;
+}
+
+body{
+font-family: Montserrat;
+font-size:12px;
+	& > header {
+		box-sizing:border-box;
+		height:64px;
+		display:inline-block;
+		width:100%;
+		& div{
+			float:left;
+			margin:26px 0 0 27px;
+			cursor:pointer;
+		}
+		& a{
+			float:right;
+			margin:24px 44px 0 0;
+			background-color:white;
+			border:none;
+			height:16px;
+			width:120px;
+			font-weight: 600px;
+			font-size: 12px;
+			cursor:pointer;
+		}
+		& p{
+			text-align:center;
+			display:none;
+		}
+	}
+	& > section {
+		margin-left:67px;
+		margin-right:67px;
+		& .headOne {
+			height:16px;
+			padding-top:8px;
+			padding-left:16px;
+		}
+		& .headTwo {
+			height:72px;
+			& .svgContainer {
+				position:absolute;
+				display:inline-block;
+				height:32px;
+				width:32px;
+				margin:24px 0 0 16px;
+			}
+			& h1 {
+				font-size:38px;
+				display:inline-block;
+				height:40px;
+				margin:16px 0 0 65px;
+			}
+		}
+		& nav {
+			@include heightElem (50px);
+			position:relative;
+			& div {
+				display:inline-block;
+				margin-right:24px;
+				width:68px;
+				cursor:pointer;
+			}
+			& .navActive {color:black;}
+			& .navBorder {
+			border-radius:2px;
+			position:absolute;
+			height:2px;
+			background-color:rgba(16, 113, 255, 1);
+			width:68px;
+			left:0;
+			bottom:0;
+			margin-right:0;
+			}
+		}
+		& .sectionForm {
+			position:relative;
+			border-top:1px solid rgba(0, 0, 0, 0.08);
+			& form {
+				@include heightElem (150px);
+			}
+			& > form > .formContainers {
+				@include heightElem (39px);
+				position:relative;
+				margin-right:30px;
+				border-bottom:1px solid rgba(0, 0, 0, 0.08);
+				display:inline-block;
+				width:166px;
+				vertical-align:middle
+			}
+			& > form > .formContainers > .label {
+				@include heightElem (12px);
+				font-size:10px;
+				display:block;
+				position:absolute;
+				margin-bottom:4px;
+			}
+			& > form > .formContainers > .svgContainerSearch{
+				@include heightElem (16px);
+				bottom:0px;
+				margin:0 0 7px 0; 
+				position:absolute; 
+				display:inline-block; 
+				width:16px;
+			}
+			& > form > .formContainers > .svgContainerToolt{
+				@include heightElem (8px);
+				bottom:0px;
+				margin:0 0 11px 0; 
+				position:absolute;
+				right:0px;
+				display:inline-block; 
+				width:12px;
+			}
+			& > form > .formContainers > input[type="text"]{
+				@include heightElem (16px);
+				box-sizing:border-box;
+				vertical-align:bottom;
+				margin:0 0 7px 0;
+				display:inline-block;
+				width:166px;
+				padding-right:34px;
+			}
+				#inputSearch {padding-left:34px;cursor:text;}
+			& > form > .formParametr {
+				@include heightElem (16px);
+				position:absolute;
+				bottom:4px; 
+				left:0;
+				display:inline-block;  
+				vertical-align:bottom;
+				& .label
+				{
+					@include heightElem (16px);
+					margin-right:95px
+				}
+				& .label + svg {
+					margin-right:10px;
+				}
+				& .customizeFilter {
+					height:16px;
+					font-size:12px;
+					margin-right:40px;
+				}
+				& .buttonDrop {
+					height:16px;
+					font-size:12px;
+					color:rgba(0, 0, 0, 0.54);
+					margin-left:2px;
+				}
+			}
+		}
+		& .tableSection {
+			margin-top:58px;
+			text-align:left;
+			vertical-align:center;
+		}
+		& .tableSection td {
+			height:40px;
+			position:relative;
+		}
+		& tr:hover .tableButton{
+			visibility:visible;
+		}
+		& .tableSection .tableButton {
+		display:inline-block;
+		visibility:hidden;
+		height:32px;
+		width:32px;
+		border-radius:40px;
+		background-color:'white';
+		border:none;
+		margin-right:0;
+		position:absolute;
+		right:0;
+		cursor:pointer;
+		&:hover{
+			background-color:rgba(0, 0, 0, 0.54);
+		}
+		}
+	}
+}
+input {
+	border:none;
+	background-color:white;
+	cursor:pointer;
+	&:focus{
+		outline:none;
+		border:none;
+		}
+}
+
+@each $word in headOne, nav, label, buttonDrop, th {
+    .#{$word}{
+        color: rgba(0, 0, 0, 0.54);
+    }
+}
+@each $word in customizeFilter, PlanningEventButton  {
+    .#{$word}{
+        color: rgba(16, 113, 255, 1);
+    }
+}
